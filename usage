@@ -1,0 +1,37 @@
+Built using Python 3.10 inconjunction with Pygsheets, GSheets API
+
+Setup:
+Google account must be setup to use Google Drive & Google Sheets API.
+Must have .json of keys from said account.
+Google Sheet of data must be shared with service account. 
+
+Go to API and Services and go to credentials. Click on create credentials and create a new service account. 
+Create project and name it whatever. After project is made, go to search bar and search "Google Sheets API" and "Google Drive API" and add the apis.
+Download credentials and change location in source code. Setup is complete
+
+https://developers.google.com/workspace/guides/create-credentials
+
+Usage:
+First prompt asks for the name of the Gsheet. Case sensitve. No trailing spaces. Sheet must be shared with service account.
+
+Second prompt asks for the letter of the column we are filtering data by. Look at example below. 
+Say we want to take our long list of students and create seperate sheets for each person whose favorite food is pizza. Enter c for that.
+
+Third prompt asks for row number of when the data starts. Look at example below. Data starts at 2 so enter 2.
+
+Fourth Prompt asks for sleep duration. Google accounts are limited by api calls so you may need to increase the recommended time of 3 seconds.
+
+Fifth prompt asks for column letter of data you would like to print out. For example, we want to print each person's name as we iterate through the data we enter A.
+
+      A           B           C     
+1  students, favorite color, favorite foods, 
+2   ryan       blue          pizza,chicken
+3   jim        red            pizza
+4   ash        blue           rice
+5   kim        green         noodles,pizza
+
+Given those parameters, the program will go to 2,C and read pizza,chicken. It will create a new sheet called Pizza. It will add two new items into a dictionary.
+One called Pizza and PizzaEmptyrow. Pizza represents the index of the sheet ie 1 for this example. EmptyRow represents the next empty row in sequence. 
+The program will copy all of row 2 and paste it in this new sheet and updates emptyrow in the dictionary.
+
+This repeats for all students. Prints out the number of students added at the end of the program.
