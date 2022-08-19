@@ -85,7 +85,7 @@ def charstoString(array,time1,temp, colorList) :
 
 hdict =	{}
 
-gc = pygsheets.authorize(service_file='/Users/dauxg/downloads/creds.json') #authorization. Need to keys to usse google api. Contact me or google if you need help
+gc = pygsheets.authorize(service_file='/Users/jsonlocation') #authorization. Need to keys to usse google api. Contact me or google if you need help
 sh = gc.open(input('Enter sheet name. Case Sensitve. Read Usage for more: ')) #open the google spreadsheet. Make sure to share sheet with service account and replace name when necessary
 
 wks = sh[0] #select the first sheet
